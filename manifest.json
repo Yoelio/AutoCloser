@@ -1,5 +1,5 @@
 {
-  "name": "AutoCloser - Email Extension",
+  "name": "Sincerely - an email extension",
   "version": "0.1.0",
   "description": "Automatically close your emails with an appropriate finish!",
   "permissions": ["activeTab", "declarativeContent"],
@@ -24,7 +24,7 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://*/*"],
+      "matches": ["https://mail.google.com/*"],
       "js": ["content.js"]
     }],
   "manifest_version": 2
