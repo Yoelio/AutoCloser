@@ -1,13 +1,22 @@
 'use strict';
 
-let closer = document.getElementById('closer');
+let professional = document.getElementById('professional');
+let impersonal = document.getElementById('impersonal');
 
-closer.onclick = function () {
+professional.onclick = function () {
   chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     let url = tabs[0].url;
     if (url.includes("compose")) {
-      chrome.tabs.executeScript(
-        { file: "content.js" });
+      chrome.tabs.sendMessage(tabs[0].id, {type:"professional"});
+    }
+  });
+};
+
+impersonal.onclick = function () {
+  chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+    let url = tabs[0].url;
+    if (url.includes("compose")) {
+      chrome.tabs.sendMessage(tabs[0].id, {type:"impersonal"})
     }
   });
 };

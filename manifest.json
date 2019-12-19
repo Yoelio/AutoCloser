@@ -2,7 +2,7 @@
   "name": "AutoCloser - Email Extension",
   "version": "0.1.0",
   "description": "Automatically close your emails with an appropriate finish!",
-  "permissions": ["activeTab", "declarativeContent", "storage"],
+  "permissions": ["activeTab", "declarativeContent"],
   "background": {
     "scripts": ["background.js"],
     "persistent": false
@@ -22,6 +22,10 @@
     "48": "images/PogChamp.png",
     "128": "images/PogChamp.png"
   },
-  "options_page": "options.html",
+  "content_scripts": [
+    {
+      "matches": ["https://*/*"],
+      "js": ["content.js"]
+    }],
   "manifest_version": 2
 }
